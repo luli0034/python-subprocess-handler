@@ -9,11 +9,11 @@ def run():
     res = subprocess.Popen(["bash", "start.sh", args.file_name], stdout=subprocess.PIPE)
     status = res.wait()
     if status == 0:
-        print('Success')
+        print({'status':status, 'msg':'File {args.file_name} read successfully'})
     elif status == 2:
-        print('Fail is not readable')
+        print({'status':status, 'msg':'File {args.file_name} is not readable'})
     else:
-        print('Fail not exist')
+        print({'status':status, 'msg':'File {args.file_name} is not exist'})
 
 if __name__=='__main__':
     run()
